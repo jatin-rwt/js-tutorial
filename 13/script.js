@@ -1,12 +1,21 @@
-//create element dynamically
-const button = document.getElementById("submitButton");
-const container = document.getElementById("my-container");
+let a = 10;
+let b = 20;
+
+let result = a + b;
 
 
+async function getData() {
+    let resultFromServer = await fetch(
+        "https://jsonplaceholder.typicode.com/posts"
+    );
+    console.log(await resultFromServer.json());
+    
+}
 
-button.addEventListener("click", () => {
-    const el = document.createElement("h1");
-    el.innerText = "Jatin Rawat";
+getData();
 
-    container.appendChild(el);
-})
+// fetch("https://jsonplaceholder.typicode.com/posts")
+// .then( (data) => {console.log(data)})
+// .catch( (error) => {console.log(error)})
+
+console.log(result);
