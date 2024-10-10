@@ -1,24 +1,12 @@
-function handleButtonClick() {
-    console.log("you have clicked the button");
-    alert('Hey i am clicked')
+//create element dynamically
+const button = document.getElementById("submitButton");
+const container = document.getElementById("my-container");
 
-}
 
-const nameBlock = document.getElementById("name-block");
-const el = document.getElementById("submitButton");
-// el.onclick =  () => {
-//     console.log("submit button clicked");
-    
-// }
 
-//better practise as this cant be overridden
-el.addEventListener('click', () => {
-    if(nameBlock.style.color === "red"){
-        nameBlock.style.color = "blue";
-    } else {
-        nameBlock.style.color = "red";
-    }
-    
+button.addEventListener("click", () => {
+    const el = document.createElement("h1");
+    el.innerText = "Jatin Rawat";
+
+    container.appendChild(el);
 })
-
-
