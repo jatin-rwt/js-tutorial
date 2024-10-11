@@ -1,21 +1,26 @@
-let a = 10;
-let b = 20;
+const button = document.getElementById("submitButton");
+const uname = document.getElementById("userName");
+const username = document.getElementById("username")
 
-let result = a + b;
-
-
-async function getData() {
-    let resultFromServer = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-    );
-    console.log(await resultFromServer.json());
+button.addEventListener("click" , () => {
+    const value = uname.value;
+    //store this on the local storage
+    //mind getting the id correct and unique
+    localStorage.setItem("name", value);
+    //local storage values stays even after page reload until we update or delete it 
     
-}
+    
+    username.innerText = value;//does the same task as below one with submit button withoout reloading
 
-getData();
+    //this also works
+    //location.reload();
+})
 
-// fetch("https://jsonplaceholder.typicode.com/posts")
-// .then( (data) => {console.log(data)})
-// .catch( (error) => {console.log(error)})
+//make this uname appear stead of username on page reload
 
-console.log(result);
+
+window.addEventListener("load", () => {
+    //get value from the local storage using key
+    const value = localStorage.getItem("name");
+    username.innerText = value;
+})
